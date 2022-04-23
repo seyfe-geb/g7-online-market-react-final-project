@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, {useRef, useEffect, useContext} from "react";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 
@@ -9,8 +9,10 @@ import { login } from "../../redux/actions/auth";
 import { BUYER, SELLER , ADMIN} from "../../helper/constants"
 
 import { getProfile  } from "../../redux/actions/profile";
+import {SetUserId} from "../../store/contexts/SetUserId";
 
 const LoginComponent = (props) => {
+  const setUserId = useContext(SetUserId);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -25,6 +27,7 @@ const LoginComponent = (props) => {
 
     if (credintial.username && credintial.password) {
       dispatch(login(credintial.username, credintial.password)).then((user) => {
+        setUserId(user.id);
 
         // document.getElementById('login-bttun').classList.add('hidden');
         // document.getElementById('logout-bttun').classList.remove('hidden');
