@@ -1,10 +1,28 @@
 import react, { useEffect, useState } from 'react';
 import { axiosIntercepter } from '../../helper/axiosApiInstance';
 import './UnapprovedSellers.css';
+import axios from "axios";
 
 function UnapprovedSellers() {
 
     const [sellers, setSellers] = useState([]);
+
+    // const fetchUnapprovedSeller = () => {
+        // const user = JSON.parse(localStorage.getItem("user"));
+        // let config = {
+        //     headers: {
+        //         'Authorization': 'Bearer ' + user.token
+        //     }
+        // }
+        // axios.get(
+        //     'http://localhost:8080/users/get-unapproved-sellers',
+        //     config
+        // )
+        //     .then( ( response ) => {
+        //         setSellers(response.data);
+        //     } )
+        //     .catch(err => console.log(err.message))
+    // }
 
     function fetchUnapprovedSeller() {
         axiosIntercepter.get('http://localhost:8080/users/get-unapproved-sellers')

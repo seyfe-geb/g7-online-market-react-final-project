@@ -5,7 +5,7 @@ const axiosApiInstance = axios.create();
 axiosApiInstance.interceptors.request.use(
   async config => {
     const user = JSON.parse(localStorage.getItem("user"));
-
+    console.log(user.token + "");
     if (user) {
       config.headers = {
         'Authorization': `Bearer ${user.token}`,

@@ -30,6 +30,13 @@ const ProductPage = () => {
       : setImgIndex(listImages.length - 1);
   };
   const postReview = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user.token)
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + user.token
+      }
+    }
     let url= "http://localhost:8080/reviews"
     let data = {
       id: 1,
@@ -38,7 +45,7 @@ const ProductPage = () => {
       productId: product.id,
     };
     axios
-      .post(url, data)
+      .post(url, data, config)
       .then(function (response) {
         alert("Review Succefully Posted!");
       })
