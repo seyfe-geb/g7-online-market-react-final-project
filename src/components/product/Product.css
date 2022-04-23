@@ -1,0 +1,22 @@
+img{
+  border-radius: 4px;
+  width: 18rem;
+  height:18rem;
+}
+.productCard{
+  border-radius: 4px;
+  margin: 10px 24px;
+  box-shadow: 0 2px 3px black;
+  padding: 2px;
+
+  width: 300px;
+  height: 500px;
+
+}
+
+#imgContainer{
+  width: 300px;
+  height: 320px;
+}
+
+

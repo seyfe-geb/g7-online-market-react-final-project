@@ -1,0 +1,28 @@
+.button{
+    background-color: #04AA6D;
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 9.4px 15px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 14px;
+  }
+
+  .seller-info{
+    text-align: justify;
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .sellerProfile-container-left-name{
+      margin: 10px;
+  }
+
+  .seller-content{
+    display: flex;
+    flex-flow: wrap;
+    margin: 10px;
+  }

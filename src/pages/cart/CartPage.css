@@ -1,0 +1,23 @@
+
+
+.itemCard{
+  border: 1px solid grey;
+  border-radius: 4px;
+  background-color: white;
+  margin: 2px;
+  padding: 4px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-style: italic;
+  width: 300px;
+}
+
+#prodIcon{
+width: 120px;
+height: 80px;
+}
+.btnCheckout{
+  width: 100%;
+}
+

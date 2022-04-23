@@ -1,0 +1,94 @@
+
+html{
+  scroll-behavior: smooth;
+}
+
+#prodImg{
+  width:560px;
+  height: 560px;
+  border-radius: 18px;
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2); 
+}
+
+.productDetailCard {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 4px;
+  text-align: center;
+  font-family: arial;
+  width:80%;
+  margin-left: 120px;
+  background-color: whitesmoke;
+}
+
+.ItemPrice {
+  color: grey;
+  font-size: 22px;
+}
+.checked {
+  color: orange;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+.r1{
+  text-align: center;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  /* margin:10px; */
+  padding: 12px;
+  /* background-color: whitesmoke; */
+
+
+}
+
+.r2{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin:10px;
+  padding: 20px;
+
+}
+.r3{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin:10px;
+  padding: 20px;
+  background-color: whitesmoke;
+
+}
+.r4{
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  margin:10px;
+  padding: 20px;
+
+}
+textarea{
+  width: 80%;
+  height: 150px;
+}
+
+.reviewCard{
+
+  border-radius: 18px;
+  padding:2px;
+  margin: 4px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: white;
+
+}
+
+.images{
+  display: flex;
+  justify-content: center;
+}
+
+.arrow{
+  display: flex;
+  align-items: center;
+}
+.btnArrow{
+
+  background-color: orange;
+  border-radius: 8px;
+  height: 60px;
+  width: 40px;
+  margin: 4px;
+}

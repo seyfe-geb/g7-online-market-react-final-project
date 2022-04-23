@@ -1,0 +1,26 @@
+.prodCard{
+  width:150px;
+  padding: 16px;
+  text-align: center;
+  border: 1px solid green;
+  box-shadow: 0 2px 3px green;
+  margin: 4px;
+  background-color: whitesmoke;
+  width:140px;
+  position: relative;
+}
+.prodCards{
+  display: flex;
+  flex-flow: row wrap;
+  width: 80%;
+  margin:auto;
+}
+.prodCard:hover, .prodCard:active{
+  background-color: white;
+}
+button{
+  background-color: green;
+  color: white;
+  margin: 2px;
+  border: none;
+}

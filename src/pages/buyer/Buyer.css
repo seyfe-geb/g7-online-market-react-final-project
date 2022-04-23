@@ -1,0 +1,31 @@
+
+
+.buyer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.row1{
+  flex:1;
+  display: flex;
+}
+.row2{
+  flex: 0 0 300px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.inpSearch{
+  width: 300px;
+  padding: 4px;
+  border-radius: 8px;
+}
+
+
+
+
+

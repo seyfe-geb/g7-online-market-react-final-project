@@ -1,0 +1,46 @@
+.order-content{
+    display: flex;
+    border: 2px groove lightgray;
+    margin: 10px;
+}
+.order-content-items{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px groove lightgray;
+    justify-content: center;
+    align-items: center;
+}
+
+.order-content-item{
+    display: flex;
+    flex-flow: wrap;
+}
+.order-content-details{
+    
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    font-size: larger;
+    min-width: 380px;
+
+}
+
+.order-content-details-inner{
+    text-align: justify;
+}
+
+.price{
+    color: darkgray;
+    font-size: 28px;
+    text-align: justify;
+}
+
+.order span{
+    font-size: larger;
+    padding: 50px;
+}
+
+.order{
+    margin-bottom: 20px;
+}
