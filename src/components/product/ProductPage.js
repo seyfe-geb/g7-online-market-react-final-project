@@ -13,7 +13,7 @@ function ProductPage(props) {
       </div>
 
       <h4>{product.name}</h4>
-      {/* <p>Posted by: {product.seller}</p> */}
+
       <div>
         <link
           rel="stylesheet"
@@ -31,8 +31,6 @@ function ProductPage(props) {
         <button className="btn" onClick={() => onAdd(product)}>
           Add to cart{" "}
         </button>
-
-        {/* <button className= "btn" onClick={()=>onRemove(product)}>- </button> */}
       </div>
     </div>
   );

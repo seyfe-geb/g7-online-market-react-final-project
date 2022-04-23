@@ -15,16 +15,7 @@ function UnapprovedReviews() {
                 .catch(err => {
                     console.log(err);
                 });
-            // const user = JSON.parse(localStorage.getItem("user"));
-            // console.log(user.token)
-            // let config = {
-            //     headers: {
-            //         'Authorization': 'Bearer ' + user.token
-            //     }
-            // }
-            // axios.get('http://http://localhost:8080/reviews/get-unapproved-reviews', config)
-            //     .then( ( response ) => setReviews(response.data))
-            //     .catch(err => console.log(err.message))
+
         }
     
         useEffect(() => fetchUnapprovedReviews(), []);

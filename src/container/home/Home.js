@@ -38,21 +38,6 @@ const Home = (props) => {
 
   const [cartItems, setCartItems] = useState([]);
 
-
-  // const updateCartItems=()=>{
-  //   const url= "http://localhost:8080/shopping-cart";
-  //   let d={id: 4}
-  //   const data= cartItems.map(item=>{
-  //     d.quantity= item.qty;
-  //     d.productId= item.id;
-  //   })
-    
-  //   axios.post(url, data).catch(err=> console.log(err)) 
-  // }
-
-  // useEffect(updateCartItems, [cartItems])
-
-
   const onAdd = (product) => {
     const exist = cartItems.find((x) => x.id === product.id);
     if (exist) {
@@ -67,7 +52,7 @@ const Home = (props) => {
     }
     else {
       setCartItems([...cartItems, { ...product, qty: 1 }]);
-      // alert("Lets add item to cart")
+
     }
   }
 
@@ -94,9 +79,7 @@ const Home = (props) => {
     <div className='home-container'>
       <Header cart = {cartItems}/>
       <Routes>
-        
 
-        {/* <Route path="buyer-profile" element={<Buyer/>} /> */}
 
         <Route path="checkout" element={<Checkout cart={cartItems}/>} />
         <Route path="login" element={<LoginComponent/>} />
@@ -117,23 +100,6 @@ const Home = (props) => {
       </Routes>
     </div>
 
-
-    // <div>
-    //   <div className="container">
-    //     {/* <div classname="item1 block">
-    //       <Buyer products={products} onAdd={onAdd} onRemove= {onRemove} cart= {cartItems}/>
-    //     </div> */}
-
-    //     {/* <div>
-    //       <Seller products={products}/>
-    //     </div> */}
-
-    //     <ProductPage/>
-
-    //   </div>
-
-
-    // </div>  
 
   )
 }

@@ -29,15 +29,6 @@ const LoginComponent = (props) => {
       dispatch(login(credintial.username, credintial.password)).then((user) => {
         setUserId(user.id);
 
-        // document.getElementById('login-bttun').classList.add('hidden');
-        // document.getElementById('logout-bttun').classList.remove('hidden');
-        
-        // document.getElementById('logout-bttun').onclick = (event) => {
-        //   localStorage.removeItem("user");
-        //   document.getElementById('login-bttun').classList.remove('hidden');
-        //   document.getElementById('logout-bttun').classList.add('hidden');
-        // };
-
         dispatch(getProfile());
 
         if (user.authorities[0].authority == SELLER) navigate("/seller-profile");
@@ -48,20 +39,15 @@ const LoginComponent = (props) => {
     }
   };
 
-    // useEffect(() => {
-    //   if (authState.isLoggedIn) navigate("/seller-profile");
-    // }, [authState.isLoggedIn]);
-
   return (
     <div className="login">
       <form ref={formData} onSubmit={loginHandler}>
-        <h2>Login</h2>
-
+        <h2>Sign-In</h2>
+        <br/>
         <div>
           <label htmlFor="username" className="label">
-            Name
+            UserName
           </label>
-          <br></br>
           <input
             type="text"
             placeholder="Enter username"
@@ -69,12 +55,11 @@ const LoginComponent = (props) => {
             id="username"
           />
         </div>
-
+        <br></br>
         <div>
           <label htmlFor="password" className="label">
             Password
           </label>
-          <br></br>
           <input
             type="password"
             placeholder="Password"
@@ -85,13 +70,14 @@ const LoginComponent = (props) => {
 
         <div >
           <button type="submit" className="btn">Login</button>
-          {/* <button type="submit" className="btn" hidden>Logout</button>&nbsp; */}
+
           <br/>
           <br/>
 
-          <Link to="/register">
+          <Link to="/register" >
             Create new account
           </Link>
+
         </div>
       </form>
     </div>

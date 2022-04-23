@@ -77,22 +77,7 @@ function SellerProfile() {
 
   return (
     <div className="sellerProfile">
-      {/* <div className="sellerProfile-container-left-name">
-                <h1>{seller.fname} {seller.lname}</h1>
-            </div>
-            <div className="sellerProfile-container-left-name">
-                <div className="seller-info">
-                    <p>Username: {seller.username}</p>
-                    <p>Email: {seller.email}</p>
-                    <p>Role: {sellerRole}</p>
-                    <p>Member since: {seller.createdAt}</p>
-                    <p>Address: {seller.addresses && seller.addresses.length > 0 && seller.addresses[0].street}<br />
-                        <span>{seller.addresses && seller.addresses.length > 0 && seller.addresses[0].city}, {seller.addresses && seller.addresses.length > 0 && seller.addresses[0].state}. {seller.addresses && seller.addresses.length > 0 && seller.addresses[0].zipCode}</span><br /></p>
-                    <p>Payment Type: {seller.paymentMethods && seller.paymentMethods.length > 0 && seller.paymentMethods[0].type}</p>
-                    <p>Payment Card#: {seller.paymentMethods && seller.paymentMethods.length > 0 && seller.paymentMethods[0].number}</p>
-                </div>
-            </div> */}
-      {/* <Link to="/seller/products" className='button'>Show Products</Link> */}
+
       <div>
         <h2>My Products</h2>
         <div className="seller-content">
