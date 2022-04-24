@@ -43,7 +43,6 @@ export default function Checkout(props) {
         setProfile(res.data);
         // console.log(res.data);
       });
-    addressMapper();
   };
 
   const postShippingAddress=()=>{
@@ -69,7 +68,7 @@ export default function Checkout(props) {
         .catch(err => console.log(err.message));
     console.log(userId);
   }
-  
+
 
   const addressMapper = () => {
     for (let i=0; i < addresses.length; i++) {
@@ -149,18 +148,17 @@ export default function Checkout(props) {
       checkoutCart();
     } else {
       navigate("/login", { replace: true });
-      // return <Navigate to='/login' />
+
     }
   };
 
   useEffect(() => {
-    console.log(userId + "Seyfe");
     setUser(JSON.parse(localStorage.getItem("user")));
     getUserProfile();
     getUserInfo();
   }, []);
 
-  // profile.authorities[0].authority=='BUYER'? "setIsApprovedBuyer(true)": "setIsApprovedBuyer(false)"
+
 
   const makePayment = (e)=>{
     e.preventDefault();

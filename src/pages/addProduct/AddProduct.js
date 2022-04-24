@@ -1,12 +1,11 @@
 import react, { useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import './AddProduct.css';
-import { axiosIntercepter} from "../../helper/axiosApiInstance";
+
 import axios from "axios";
 
 function AddProduct() {
 
-    //const [product, setProduct] = useState({});
     const [images, setImages] = useState([{ id: 1, name: "", imageUri: "" }]);
 
     const formData = useRef();

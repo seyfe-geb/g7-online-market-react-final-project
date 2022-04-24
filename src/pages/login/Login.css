@@ -5,12 +5,14 @@ body {font-family: Arial, Helvetica, sans-serif;}
   justify-content: center;
   align-items: center;
   height: 100%;
+
 }
 
 form {
     border: 3px solid #f1f1f1;
     padding: 10px;
     width: 500px;
+    background-color: #eed390;
 }
 
 h2{
@@ -30,32 +32,11 @@ input[type=text], input[type=email],input[type=password]
   box-sizing: border-box;
 }
 
-/* button {
-
-  background-color: #04AA6D;
-  color: white;
-  border: none;
-  cursor: pointer;
-
-  padding: 10px 18px;
-  
-  
-}
-
-button:hover {
-  opacity: 0.8;
-} */
-
 .cancelbtn {
-  
+
   padding: 10px 18px;
   background-color: #f44336;
 }
-
-
-
-
-
 
 span.psw {
   float: right;

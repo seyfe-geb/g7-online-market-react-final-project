@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import "./Product.css";
 import {Outlet, Link} from "react-router-dom"
 
@@ -13,7 +13,6 @@ export default function Product(props) {
       </div>
       
       <h4>{product.name}</h4>
-      {/* <p>Posted by: {product.seller}</p> */}
       <div>
         <link
           rel="stylesheet"
@@ -29,10 +28,8 @@ export default function Product(props) {
       <p>${product.price}</p>
       <div>
         <button className="btn" onClick={() => onAdd(product)}>
-          Add to cart{" "}
+          Add to Cart{" "}
         </button>
-
-        {/* <button className= "btn" onClick={()=>onRemove(product)}>- </button> */}
       </div>
     </div>
   );

@@ -4,9 +4,9 @@ import "./Admin.css";
 export default function Admin(){
 
   const [products, setProducts] = useState([
-    {sellername: "Musie", id:1 , product: "Nissan"},
-    {sellername: "Lidya", id:2 , product: "Phone"},
-    {sellername: "Haile", id:3 , product: "Shoe"},
+    {sellername: "Seyfe", id:1 , product: "phone"},
+    {sellername: "ermias", id:2 , product: "car"},
+    {sellername: "star", id:3 , product: "Shoe"},
     
   ]) 
 
