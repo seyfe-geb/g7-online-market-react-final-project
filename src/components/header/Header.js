@@ -35,6 +35,9 @@ export default function Header(props) {
 
   return (
     <div className="topnav">
+
+      <Link to={'/buyer-profile'} style={{fontSize:'25px', color:'darkmagenta'}}>Home</Link>
+
       <div className="brand" style={{marginLeft:"700px"}}>Group7 Online Shopping</div>
 
       <div className="menu-items">
@@ -63,9 +66,9 @@ export default function Header(props) {
         }
         
         <div className="menuItem">
-          {!user && <Link to="/login" id="login-bttun">Sign In</Link>}
+          {!user && <Link to="/login" id="login-bttun" style={{fontSize:'25px', color:'darkmagenta'}}>Sign In</Link>}
 
-          {user && <Link to="/" id="logout-bttun" onClick={logoutHandler}>SignOut</Link>}
+          {user && <Link to="/" id="logout-bttun" onClick={logoutHandler} style={{fontSize:'25px', color:'darkmagenta'}}>SignOut</Link>}
         </div>
       </div>
     </div >

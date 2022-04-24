@@ -1,18 +1,20 @@
-import react from "react";
+import react, {useContext} from "react";
 import { useState, useEffect } from "react";
-import { Link, Navigate } from "react-router-dom";
+import {Link, Navigate, useNavigate} from "react-router-dom";
 import "./CartPage.css";
+import {GetUserId} from "../../store/contexts/GetUserId";
 
 const CartPage = (props) => {
   const { cartItems, onAdd, onRemove } = props;
+  const userId = useContext(GetUserId);
+  const navigate = useNavigate();
 
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(
-    () =>
-      setTotalPrice(
-        cartItems.reduce((tot, item) => tot + item.price * item.qty, 0)
-      ),
+    () =>{
+      setTotalPrice(cartItems.reduce((tot, item) => tot + item.price * item.qty, 0));
+      },
     [cartItems]
   );
 

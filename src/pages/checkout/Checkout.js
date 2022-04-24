@@ -153,9 +153,14 @@ export default function Checkout(props) {
   };
 
   useEffect(() => {
-    setUser(JSON.parse(localStorage.getItem("user")));
-    getUserProfile();
-    getUserInfo();
+    if(!userId){
+      alert("Please Login or Create An Account First")
+      navigate("/login");
+    }else{
+      setUser(JSON.parse(localStorage.getItem("user")));
+      getUserProfile();
+      getUserInfo();
+    }
   }, []);
 
 
