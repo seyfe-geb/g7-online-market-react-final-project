@@ -35,7 +35,7 @@ export default function Header(props) {
 
   return (
     <div className="topnav">
-      <div className="brand">Group7 Online Shopping</div>
+      <div className="brand" style={{marginLeft:"700px"}}>Group7 Online Shopping</div>
 
       <div className="menu-items">
         {(user && user.authorities[0].authority == "BUYER") &&

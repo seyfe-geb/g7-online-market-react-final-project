@@ -294,7 +294,7 @@ export default function Checkout(props) {
                   type="text"
                   id="expyear"
                   name="expyear"
-                  placeholder="2018"
+                  placeholder="2024"
                 />
               </div>
               <div className="col-50">
