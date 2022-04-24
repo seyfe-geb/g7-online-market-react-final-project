@@ -312,9 +312,9 @@ export default function Checkout(props) {
         </label>
         {/* <input type="submit" value="Continue to checkout" className="btn"/> */}
 
-        <button className="btn" onClick={checkoutHandler}>
-          Checkout
-        </button>
+        <button className="btn" onClick={checkoutHandler}> Checkout</button>
+
+        <button className="btn" onClick={() => navigate("/buyer-profile")}>Cancel</button>
       </div>
     </div>
   );
