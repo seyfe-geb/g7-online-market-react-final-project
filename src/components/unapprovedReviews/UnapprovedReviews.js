@@ -1,6 +1,7 @@
 import react, { useEffect, useState } from 'react';
 import { axiosIntercepter } from '../../helper/axiosApiInstance';
 import './UnapprovedReviews.css';
+import axios from "axios";
 
 function UnapprovedReviews() {
     
@@ -14,9 +15,10 @@ function UnapprovedReviews() {
                 .catch(err => {
                     console.log(err);
                 });
+
         }
     
-        useEffect(fetchUnapprovedReviews, []);
+        useEffect(() => fetchUnapprovedReviews(), []);
     
         function approveReview(id) {
             axiosIntercepter.put(`http://localhost:8080/reviews/approve-review/${id}`)

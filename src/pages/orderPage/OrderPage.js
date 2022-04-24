@@ -17,7 +17,7 @@ const OrderPage = (props) => {
             });
     }
 
-    // useEffect(fetchOrder(props.match.params.id), []);
+
     useEffect(() => {
         fetchOrder();
     }, []);

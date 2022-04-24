@@ -1,10 +1,12 @@
 import react, { useEffect, useState } from 'react';
 import { axiosIntercepter } from '../../helper/axiosApiInstance';
 import './UnapprovedSellers.css';
+import axios from "axios";
 
 function UnapprovedSellers() {
 
     const [sellers, setSellers] = useState([]);
+
 
     function fetchUnapprovedSeller() {
         axiosIntercepter.get('http://localhost:8080/users/get-unapproved-sellers')

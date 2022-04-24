@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, {useRef, useEffect, useContext} from "react";
 import "./Login.css";
 import { useDispatch } from "react-redux";
 
@@ -9,8 +9,10 @@ import { login } from "../../redux/actions/auth";
 import { BUYER, SELLER , ADMIN} from "../../helper/constants"
 
 import { getProfile  } from "../../redux/actions/profile";
+import {SetUserId} from "../../store/contexts/SetUserId";
 
 const LoginComponent = (props) => {
+  const setUserId = useContext(SetUserId);
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
@@ -25,15 +27,7 @@ const LoginComponent = (props) => {
 
     if (credintial.username && credintial.password) {
       dispatch(login(credintial.username, credintial.password)).then((user) => {
-
-        // document.getElementById('login-bttun').classList.add('hidden');
-        // document.getElementById('logout-bttun').classList.remove('hidden');
-        
-        // document.getElementById('logout-bttun').onclick = (event) => {
-        //   localStorage.removeItem("user");
-        //   document.getElementById('login-bttun').classList.remove('hidden');
-        //   document.getElementById('logout-bttun').classList.add('hidden');
-        // };
+        setUserId(user.id);
 
         dispatch(getProfile());
 
@@ -45,20 +39,15 @@ const LoginComponent = (props) => {
     }
   };
 
-    // useEffect(() => {
-    //   if (authState.isLoggedIn) navigate("/seller-profile");
-    // }, [authState.isLoggedIn]);
-
   return (
     <div className="login">
       <form ref={formData} onSubmit={loginHandler}>
-        <h2>Login</h2>
-
+        <h2>Sign-In</h2>
+        <br/>
         <div>
           <label htmlFor="username" className="label">
-            Name
+            UserName
           </label>
-          <br></br>
           <input
             type="text"
             placeholder="Enter username"
@@ -66,12 +55,11 @@ const LoginComponent = (props) => {
             id="username"
           />
         </div>
-
+        <br></br>
         <div>
           <label htmlFor="password" className="label">
             Password
           </label>
-          <br></br>
           <input
             type="password"
             placeholder="Password"
@@ -82,13 +70,14 @@ const LoginComponent = (props) => {
 
         <div >
           <button type="submit" className="btn">Login</button>
-          {/* <button type="submit" className="btn" hidden>Logout</button>&nbsp; */}
+
           <br/>
           <br/>
 
-          <Link to="/register">
+          <Link to="/register" >
             Create new account
           </Link>
+
         </div>
       </form>
     </div>

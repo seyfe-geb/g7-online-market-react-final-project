@@ -4,11 +4,11 @@ img{
   height:18rem;
 }
 .productCard{
-  border-radius: 4px;
+  border-radius: 10px 10px 80px 80px;
   margin: 10px 24px;
   box-shadow: 0 2px 3px black;
   padding: 2px;
-
+  background-color: #61dafb;
   width: 300px;
   height: 500px;
 

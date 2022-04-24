@@ -1,7 +1,7 @@
 const axios = require('axios');
 const axiosApiInstance = axios.create();
 
-// Request interceptor for API calls
+
 axiosApiInstance.interceptors.request.use(
   async config => {
     const user = JSON.parse(localStorage.getItem("user"));

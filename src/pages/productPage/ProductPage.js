@@ -5,14 +5,13 @@ import axios from "axios";
 
 const ProductPage = () => {
 
-  //get the state obj passed via link, it contains the product
+
   const location = useLocation();
   const { product } = location.state;
 
-  //reviw state
+
   const [textReview, setTextReview ] = useState("");
 
-  // lets stor the image links in a list;
   var listImages = [];
   for (var i = 0; i < product.images.length; i++) {
     listImages.push(product.images[i].imageUri);
@@ -30,6 +29,13 @@ const ProductPage = () => {
       : setImgIndex(listImages.length - 1);
   };
   const postReview = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user.token)
+    let config = {
+      headers: {
+        'Authorization': 'Bearer ' + user.token
+      }
+    }
     let url= "http://localhost:8080/reviews"
     let data = {
       id: 1,
@@ -38,7 +44,7 @@ const ProductPage = () => {
       productId: product.id,
     };
     axios
-      .post(url, data)
+      .post(url, data, config)
       .then(function (response) {
         alert("Review Succefully Posted!");
       })
@@ -85,8 +91,7 @@ const ProductPage = () => {
           <span className="fa fa-star checked"></span>
           <span className="fa fa-star"></span>
           <span className="fa fa-star"></span>
-          {/* <br/>
-        <button className="btn">Add to Cart</button> */}
+
         </div>
       </div>
 

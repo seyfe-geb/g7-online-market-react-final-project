@@ -1,11 +1,27 @@
 import "./Checkout.css";
-import { Profiler, useState, useEffect } from "react";
+import {Profiler, useState, useEffect, useRef, useContext} from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { axiosIntercepter } from "../../helper/axiosApiInstance";
+import {GetUserId} from "../../store/contexts/GetUserId";
 
 export default function Checkout(props) {
+
+  const userId = useContext(GetUserId);
+
+  const paymentFormData = useRef();
+
+  const [userInfo, setUserInfo] = useState({});
+
   const location = useLocation();
+
+  const [user, setUser] = useState({});
+
+  const [addresses, setAddresses] = useState([]);
+
+  const [billing, setBilling] = useState({});
+
+  const [shipping, setShipping] = useState({});
 
   const { cartItems } = location.state;
 
@@ -20,9 +36,10 @@ export default function Checkout(props) {
   const [profile, setProfile] = useState({});
 
   const getUserProfile = () => {
-    return axiosIntercepter
+    axiosIntercepter
       .get("http://localhost:8080/users/profile")
       .then((res) => {
+        setAddresses(res.data.addresses);
         setProfile(res.data);
         // console.log(res.data);
       });
@@ -41,8 +58,28 @@ export default function Checkout(props) {
     .post("http://localhost:8080/user-addresses/", data )
     .then(console.log("address added successfully!"))
   }
-  
 
+  const getUserInfo = (i)=>{
+    axiosIntercepter
+        .get("http://localhost:8080/users/" + userId)
+        .then((res) => {
+          setUserInfo(res.data);
+        })
+        .catch(err => console.log(err.message));
+    console.log(userId);
+  }
+
+
+  const addressMapper = () => {
+    for (let i=0; i < addresses.length; i++) {
+      if(addresses[i].type == 'BILLING'){
+        setBilling(addresses[i]);
+        console.log(addresses[i].street);
+      }else{
+        setShipping(addresses[i]);
+      }
+    }
+  }
 
 
 
@@ -50,8 +87,8 @@ export default function Checkout(props) {
     sameAddress ? setAddress(false) : setAddress(true);
     if (!sameAddress) {
       setInputData({
-        name: "Musie Yemane",
-        emial: "mosi@gmail.com",
+        name: "Seyfe Gebriel",
+        emial: "smamo@miu.edu",
         address: "1104 Meadwallow bld 144",
         city: "Fairfield",
         state: "IA",
@@ -60,7 +97,7 @@ export default function Checkout(props) {
     } else {
       setInputData({
         name: "",
-        emial: "",
+        email: "",
         address: "",
         city: "",
         state: "",
@@ -111,15 +148,27 @@ export default function Checkout(props) {
       checkoutCart();
     } else {
       navigate("/login", { replace: true });
-      // return <Navigate to='/login' />
+
     }
   };
 
   useEffect(() => {
-    getUserProfile();
+    if(!userId){
+      alert("Please Login or Create An Account First")
+      navigate("/login");
+    }else{
+      setUser(JSON.parse(localStorage.getItem("user")));
+      getUserProfile();
+      getUserInfo();
+    }
   }, []);
 
-  // profile.authorities[0].authority=='BUYER'? "setIsApprovedBuyer(true)": "setIsApprovedBuyer(false)"
+
+
+  const makePayment = (e)=>{
+    e.preventDefault();
+
+  }
 
   return (
     <div>
@@ -165,7 +214,7 @@ export default function Checkout(props) {
               type="text"
               id="email"
               name="email"
-              value={inputData.emial}
+              value={inputData.email}
               placeholder="john@example.com"
             />
             <label for="adr">
@@ -250,7 +299,7 @@ export default function Checkout(props) {
                   type="text"
                   id="expyear"
                   name="expyear"
-                  placeholder="2018"
+                  placeholder="2024"
                 />
               </div>
               <div className="col-50">
@@ -266,9 +315,9 @@ export default function Checkout(props) {
         </label>
         {/* <input type="submit" value="Continue to checkout" className="btn"/> */}
 
-        <button className="btn" onClick={checkoutHandler}>
-          Checkout
-        </button>
+        <button className="btn" onClick={checkoutHandler}> Checkout</button>
+
+        <button className="btn" onClick={() => navigate("/buyer-profile")}>Cancel</button>
       </div>
     </div>
   );

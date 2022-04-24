@@ -62,7 +62,7 @@ body{
   font-size: 28px;
   text-align: center;
   font-weight: bold;
-  color: whitesmoke;
+  color: black;
   min-width: 150px;
 }
 
@@ -71,7 +71,7 @@ body{
   justify-content: space-between;
   align-items: center;
 
-  background-color: black;
+  background-color: #e8c673;
   color: white;
   position: fixed;
   top: 0;
@@ -86,6 +86,7 @@ body{
   align-items: center;
   justify-content: end;
   height: 100%;
+
 }
 .search{
   flex:1;
@@ -103,10 +104,11 @@ body{
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+
 }
 
 #btnNumItems {
-  background-color: red;
+  background-color: #0022ff;
   border-radius: 8px;
   border: none;
   color: #ffffff;

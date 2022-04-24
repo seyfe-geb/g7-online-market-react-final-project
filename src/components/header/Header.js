@@ -13,21 +13,10 @@ export default function Header(props) {
   const authState = useSelector((state) => state.auth);
   const [user, setUser] = useState(null);
 
-  // const [searchTerm, setSearchTerm] = React.useState("");
-  // const [searchResults, setSearchResults] = React.useState([]);
-  // const handleChange = event => {
-  //   setSearchTerm(event.target.value);
-  // };
-  // React.useEffect(() => {
-  //   const results = people.filter(person =>
-  //     person.toLowerCase().includes(searchTerm)
-  //   );
-  //   setSearchResults(results);
-  // }, [searchTerm]);
+
 
   const { products, onAdd, onRemove, cart } = props;
   const [searchTerm, setSearchTerm] = useState("");
-  //const [searchResults, setSearchResults] = useState(products);
 
   const logoutHandler = () => {
     dispatch(logout());
@@ -46,7 +35,10 @@ export default function Header(props) {
 
   return (
     <div className="topnav">
-      <div className="brand">Online Market</div>
+
+      <Link to={'/buyer-profile'} style={{fontSize:'25px', color:'darkmagenta'}}>Home</Link>
+
+      <div className="brand" style={{marginLeft:"700px"}}>Group7 Online Shopping</div>
 
       <div className="menu-items">
         {(user && user.authorities[0].authority == "BUYER") &&
@@ -55,7 +47,7 @@ export default function Header(props) {
               className="inpSearch"
               value={searchTerm}
               onChange={handleChange}
-              placeholder="Search..."
+              placeholder="Search for Items..."
             />
           </div>
         }
@@ -74,9 +66,9 @@ export default function Header(props) {
         }
         
         <div className="menuItem">
-          {!user && <Link to="/login" id="login-bttun">Login</Link>}
+          {!user && <Link to="/login" id="login-bttun" style={{fontSize:'25px', color:'darkmagenta'}}>Sign In</Link>}
 
-          {user && <Link to="/" id="logout-bttun" onClick={logoutHandler}>Logout</Link>}
+          {user && <Link to="/" id="logout-bttun" onClick={logoutHandler} style={{fontSize:'25px', color:'darkmagenta'}}>SignOut</Link>}
         </div>
       </div>
     </div >
